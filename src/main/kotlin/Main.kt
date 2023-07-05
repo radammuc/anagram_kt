@@ -9,6 +9,7 @@ fun main(args: Array<String>) {
 }
 
 fun anagram(s1: String, s2: String): Boolean {
+    // we care only about ASCII (7-bit) - ignore everything else
     val characters = IntArray(26)
 
     updateArray(s1, characters, Int::inc)
@@ -20,8 +21,10 @@ fun anagram(s1: String, s2: String): Boolean {
 fun updateArray(s: String, array: IntArray, f : (Int)-> Int) {
     for (c in s) {
         when (val code = c.code) {
+            // ignore case
             in 'A'.code..'Z'.code -> array[code - 65] = f(array[code - 65])
             in 'a'.code..'z'.code -> array[code - 97] = f(array[code - 97])
+            // ignore non-ASCII characters
             else -> println("ignore '$c'")
         }
     }

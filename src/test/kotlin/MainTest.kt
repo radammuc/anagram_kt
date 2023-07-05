@@ -1,9 +1,8 @@
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
-class MainKtTest {
+class MainTest {
 
     @Test
     fun testAnagram() {
@@ -17,15 +16,15 @@ class MainKtTest {
     @Test
     fun testAnagram_false() {
 
-        val isAnagram = anagram("lorem ipsum", "sumipmerol  z")
+        val isAnagram = anagram("lorem ipsum", "lorem ipsum a")
 
         assertFalse(isAnagram)
     }
 
     @Test
-    fun testAnagram_z() {
+    fun testAnagram_edge_cases() {
 
-        val isAnagram = anagram("lorem ipsum z", "sumipmerol  z")
+        val isAnagram = anagram("lorem ipsum za", "sumipmerol  AZ")
 
         assertTrue(isAnagram)
     }
@@ -42,6 +41,14 @@ class MainKtTest {
     fun testAnagram_ignore_upper_case() {
 
         val isAnagram = anagram("lorem ipsum", "SUMIPMEROL  ä")
+
+        assertTrue(isAnagram)
+    }
+
+    @Test
+    fun testAnagram_ignore_number() {
+
+        val isAnagram = anagram("lorem ipsum", "SUMIPMEROL  2")
 
         assertTrue(isAnagram)
     }
