@@ -2,7 +2,7 @@ fun main(args: Array<String>) {
     if (args.size >= 2) {
         val isAnagram = anagram(args[0], args[1])
 
-        println("'${args[0]} and '${args[1]}' is an anagram: $isAnagram")
+        println("'${args[0]}' and '${args[1]}' is an anagram: $isAnagram")
     } else {
         println("Usage: anagram text1 text2")
     }
